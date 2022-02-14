@@ -1,7 +1,7 @@
 COMPILER = gcc
 SRC_FILES = $(wildcard src/*.c)
 OBJ_FILES = $(subst src, build, $(SRC_FILES:.c=.o))
-OUTPUT = bin/liblinalg.so
+OUTPUT = bin/libclinalg.so
 
 .PHONY: clean, run
 

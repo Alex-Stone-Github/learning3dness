@@ -1,4 +1,4 @@
-#include "linalg.h"
+#include "../include/linalg.h"
 
 Mat4x4 createMat4(Vec4 a, Vec4 b, Vec4 c, Vec4 d) {
     Mat4x4 mat;
@@ -61,17 +61,23 @@ Vec4 mulMatVec4(Vec4 vec4, Mat4x4 mat4) {
     return out;
 }
 Vec4 normaliseVec4(Vec4 vec) {
-    double length = (vec.x*vec.x+vec.y*vec.y+vec.z*vec.z+vec.w*vec.w)/4;
+    double length = dotVec4(vec, vec)/4;
     return (Vec4){vec.x/length,vec.y/length,vec.z/length,vec.w/length};
 }
 Vec3 normaliseVec3(Vec3 vec) {
-    double length = (vec.x*vec.x+vec.y*vec.y+vec.z*vec.z)/3;
+    double length = dotVec3(vec, vec)/3;
     return (Vec3){vec.x/length,vec.y/length,vec.z/length};
 }
 Vec2 normaliseVec2(Vec2 vec) {
-    double length = (vec.x*vec.x+vec.y*vec.y)/2;
+    double length = dotVec2(vec, vec)/2;
     return (Vec2){vec.x/length,vec.y/length};
 }
-Vec4 dotVec4(Vec4 a, Vec4 b);
-Vec3 dotVec3(Vec3 a, Vec3 b);
-Vec2 dotVec2(Vec2 a, Vec2 b);
+double dotVec4(Vec4 a, Vec4 b) {
+    return a.x*b.x+a.y*b.y+a.z*b.z+a.w*b.w;
+}
+double dotVec3(Vec3 a, Vec3 b) {
+    return a.x*b.x+a.y*b.y+a.z*b.z;
+}
+double dotVec2(Vec2 a, Vec2 b) {
+    return a.x*b.x+a.y*b.y;
+}

@@ -49,9 +49,9 @@ Vec4 mulMatVec4(Vec4 vec4, Mat4x4 mat4);
 Vec4 normaliseVec4(Vec4 vec);
 Vec3 normaliseVec3(Vec3 vec);
 Vec2 normaliseVec2(Vec2 vec);
-Vec4 dotVec4(Vec4 a, Vec4 b);
-Vec3 dotVec3(Vec3 a, Vec3 b);
-Vec2 dotVec2(Vec2 a, Vec2 b);
+double dotVec4(Vec4 a, Vec4 b);
+double dotVec3(Vec3 a, Vec3 b);
+double dotVec2(Vec2 a, Vec2 b);
 
 
 
